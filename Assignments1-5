@@ -1,0 +1,151 @@
+# Assignment-1 Write a python program to create, append and remove etc. operation on Dictionary and Tuple. 
+
+#for dictionary
+student = {
+    "name": "Adinath",
+    "age": 17,
+    "course": "Engineering"
+}
+print("Original Dictionary:", student)
+
+student.update({"city": "Pune"})
+print("After adding:", student)
+
+student.pop("age")
+print("After removing:", student)
+
+student = dict(reversed(list(student.items())))
+print("Reversed Dictionary:", student)
+
+print("Count of Pune:", list(student.values()).count("Pune"))
+
+#for tuples
+numbers = (10, 20, 30, 40, 50)
+print("Original Tuple:", numbers)
+
+numbers = numbers + (60,)
+print("After adding:", numbers)
+
+numbers = numbers[:2] + numbers[3:]
+print("After removing 30:", numbers)
+
+numbers = numbers[::-1]
+print("Reversed Tuple:", numbers)
+
+print("Count of 20:", numbers.count(20))
+
+
+# Assignment-2 write a python program to find largest of 3 numbers
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+c = int(input("Enter third number: "))
+
+if a >= b and a >= c:
+    largest = a
+elif b >= a and b >= c:
+    largest = b
+else:
+    largest = c
+
+print("Largest number is:", largest)
+
+
+# Assignment-3 Write a Python program that accepts the length of three sides of a triangle as inputs. The program should indicate whether or not the triangle is a right-angled triangle using function.
+def right_triangle(a, b, c):
+    if a >= b and a >= c:
+        largest = a
+        x = b
+        y = c
+    elif b >= a and b >= c:
+        largest = b
+        x = a
+        y = c
+    else:
+        largest = c
+        x = a
+        y = b
+
+    if largest ** 2 == x ** 2 + y ** 2:
+        return True
+    else:
+        return False
+
+
+a = int(input("Enter first side: "))
+b = int(input("Enter second side: "))
+c = int(input("Enter third side: "))
+
+if right_triangle(a, b, c):
+    print("The triangle is a right-angled triangle.")
+else:
+    print("The triangle is not a right-angled triangle.")
+
+
+# Assignment-4 Write a Python program to create an array and perform addition of two matrices. 
+# addition of matrices using lists
+A = [
+    [1, 2],
+    [3, 4]
+]
+
+B = [
+    [5, 6],
+    [7, 8]
+]
+
+C = [
+    [0, 0],
+    [0, 0]
+]
+
+for i in range(2):
+    for j in range(2):
+        C[i][j] = A[i][j] + B[i][j]
+
+print("Matrix A:")
+for row in A:
+    print(row)
+
+print("Matrix B:")
+for row in B:
+    print(row)
+
+print("Addition of matrices:")
+for row in C:
+    print(row)
+
+# using NumPy array
+import numpy as np
+
+A = np.array([
+    [1, 2],
+    [3, 4]
+])
+
+B = np.array([
+    [5, 6],
+    [7, 8]
+])
+
+# Addition of two matrices
+C = A + B
+
+print("Matrix A:")
+print(A)
+
+print("Matrix B:")
+print(B)
+
+print("Addition of matrices:")
+print(C)
+
+
+# Assignment-5 Write a Python program to check that a string contains only a certain set of characters (in this case a-z, A-Z and 0-9). 
+import re
+
+string = input("Enter a string: ")
+
+if re.fullmatch("[a-zA-Z0-9]+", string):
+    print("String contains only a-z, A-Z and 0-9.")
+else:
+    print("String contains other characters.")
